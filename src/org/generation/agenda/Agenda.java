@@ -55,7 +55,7 @@ public class Agenda {
     // Buscar contacto
     public int findContact(String nombre) {
         int index = 1;
-        for(Contacto contacto: agenda) { 
+        for(Contacto contacto: agenda) {
             boolean contactoEncontrado = contacto.getName().equalsIgnoreCase(nombre);
             if (contactoEncontrado) {
                 return index;
@@ -90,9 +90,5 @@ public class Agenda {
         }
         return maxTam - agenda.size();
     }
-
-
-    public void buscaContacto() {
-
-    }
+    
 }
