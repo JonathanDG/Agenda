@@ -1,13 +1,13 @@
 package org.generation.agenda;
 
-import org.generation.contact.Contact;
+import org.generation.contact.Contacto;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class Agenda {
-    private final List<Contact> agenda = new ArrayList<>();
+    private final List<Contacto> agenda = new ArrayList<>();
     private int maxTam = 10;
 
 
@@ -20,19 +20,27 @@ public class Agenda {
     }
 
     public void getContactos() {
-        Iterator<Contact> iterador = agenda.iterator();
+        Iterator<Contacto> iterador = agenda.iterator();
 
         while (iterador.hasNext()){
-            Contact contact = iterador.next();
+            Contacto contact = iterador.next();
             System.out.println(contact.toString());
         }
 
     }
+    public boolean agendaLlena() {
+        if (agenda.size() == maxTam){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
     //Añade un contacto a la agenda. Si no hay espacio suficiente, se debe indicar al usuario que la agenda está llena.
 
-    public void addContact(Contact contacto) {
-        if(agendaLlena){
+    public void addContact(Contacto contacto) {
+        if(agendaLlena()){
             System.out.println("Agenda llena, no se puede agregar otro contacto");
             return;
         }else(isContact(contacto)){
@@ -59,14 +67,7 @@ public class Agenda {
     return false;
     }
 
-    public boolean agendaLlena() {
-        if (agenda.size() == maxTam){
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+
     public int espacioLibres() {
         if (agendaLlena()){
             return 0;

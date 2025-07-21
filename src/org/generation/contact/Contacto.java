@@ -1,10 +1,10 @@
 package org.generation.contact;
 
-public class Contact {
+public class Contacto {
     private Long number_phone;
     private String name;
 
-    public Contact(Long number_phone, String name) {
+    public Contacto(Long number_phone, String name) {
         this.number_phone = number_phone;
         this.name = name;
     }
