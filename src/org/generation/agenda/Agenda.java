@@ -22,17 +22,34 @@ public class Agenda {
         return agenda;
     }
 
-    public void addContact(Contact contacto) {
-        agenda.add(contacto);
+    //Añade un contacto a la agenda. Si no hay espacio suficiente, se debe indicar al usuario que la agenda está llena.
+
+    public void addContact(Contacto contacto) {
+        if(agendaLlena){
+            System.out.println("Agenda llena, no se puede agregar otro contacto");
+            return;
+        }else(isContact(contacto)){
+            System.out.println("Contacto repetido");
+            return;
+        }
+        this.agenda.add(contacto);
+        System.out.println("Contacto agregado correctamente...");
     }
 
     public void deleteContact(String nombre) {
 
     }
+    //existeContacto(contacto C) boolean, Verifica si un contacto ya existe en la agenda.
+    //Los contactos se consideran iguales si tienen el mismo nombre y apellido, sin importar el teléfono.
 
-    public boolean isContact() {
-
-        return true;
+    public isContact(Contacto contacto) {
+        for(Contacto c:agenda){ //ciclo for each donde el indice c recorre toda la lista agenda
+            if(c.getNombre().equalsIgnoreCase(contacto.getNombre()) && //equalsIgnoreCase ignora entre mayusculas y minusculas
+            c.getApellido().equalsIgnoreCase(contacto.getApellido())) {
+            return true;
+        }
+    }
+    return false;
     }
 
     public boolean agendaLlena() {
