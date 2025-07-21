@@ -31,7 +31,6 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-
                     System.out.println("Nombre: ");
                     String name = scanner.nextLine();
                     System.out.println("Nombre es: " +name);
@@ -70,9 +69,8 @@ public class Main {
                     System.out.println("Adios");
                     break;
                 default:
-
+                    System.out.println("Opcion invalida");
             }
-
         } while (opcion != 7);
     }
 }
