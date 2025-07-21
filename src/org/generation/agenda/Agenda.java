@@ -29,12 +29,7 @@ public class Agenda {
 
     }
     public boolean agendaLlena() {
-        if (agenda.size() == maxTam){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return agenda.size() == maxTam;
     }
 
     //Añade un contacto a la agenda. Si no hay espacio suficiente, se debe indicar al usuario que la agenda está llena.
@@ -69,10 +64,11 @@ public class Agenda {
 
 
     public int espacioLibres() {
-        if (agendaLlena()){
+        if(!agendaLlena()){
+            return maxTam - agenda.size();
+        } else {
             return 0;
         }
-        return maxTam - agenda.size();
     }
 
 

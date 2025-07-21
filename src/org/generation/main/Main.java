@@ -52,10 +52,18 @@ public class Main {
 
                     break;
                 case 5:
-
+                    if(agenda.agendaLlena()){
+                        System.out.println("\nLa agenda está llena");
+                    } else {
+                        System.out.println("\nLa agenda aún tiene esapcio");
+                    }
                     break;
                 case 6:
-
+                    if(agenda.espacioLibres() == 0){
+                        System.out.println("\nNO hay espacios libres");
+                    } else{
+                        System.out.println("\nHay " + agenda.espacioLibres() + " espacios libres.");
+                    }
                     break;
                 case 7:
                     System.out.println("Adios");
