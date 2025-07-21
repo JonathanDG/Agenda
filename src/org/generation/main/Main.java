@@ -1,7 +1,6 @@
 package org.generation.main;
 
 import org.generation.agenda.Agenda;
-import org.generation.contact.Contact;
 
 import java.util.Scanner;
 
@@ -40,7 +39,7 @@ public class Main {
                     agenda.addContact(contacto);
                     break;
                 case 2:
-
+                        agenda.buscaContacto();
                     break;
                 case 3:
 
