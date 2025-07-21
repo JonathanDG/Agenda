@@ -3,10 +3,21 @@ package org.generation.contact;
 public class Contacto {
     private Long number_phone;
     private String name;
+    private String lastName;
 
-    public Contacto(Long number_phone, String name) {
+    public Contacto(Long number_phone, String name, String lastName) {
         this.number_phone = number_phone;
         this.name = name;
+        this.lastName = lastName;
+
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Long getNumber_phone() {

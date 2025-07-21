@@ -43,7 +43,7 @@ public class Agenda {
         if(agendaLlena()){
             System.out.println("Agenda llena, no se puede agregar otro contacto");
             return;
-        }else(isContact(contacto)){
+        }else if (isContact(contacto)){
             System.out.println("Contacto repetido");
             return;
         }
@@ -57,14 +57,14 @@ public class Agenda {
     //existeContacto(contacto C) boolean, Verifica si un contacto ya existe en la agenda.
     //Los contactos se consideran iguales si tienen el mismo nombre y apellido, sin importar el teléfono.
 
-    public isContact(Contacto contacto) {
+    public boolean isContact(Contacto contacto) {
         for(Contacto c:agenda){ //ciclo for each donde el indice c recorre toda la lista agenda
-            if(c.getNombre().equalsIgnoreCase(contacto.getNombre()) && //equalsIgnoreCase ignora entre mayusculas y minusculas
-            c.getApellido().equalsIgnoreCase(contacto.getApellido())) {
-            return true;
+            if(c.getName().equalsIgnoreCase(contacto.getName()) && //equalsIgnoreCase ignora entre mayusculas y minusculas
+            c.getLastName().equalsIgnoreCase(contacto.getLastName())) {
+                return true;
+            }
         }
-    }
-    return false;
+        return false;
     }
 
 
