@@ -33,9 +33,11 @@ public class Main {
                 case 1:
                     System.out.println("Nombre: ");
                     String name = scanner.nextLine();
+                    System.out.println("Apellido: ");
+                    String lastName = scanner.nextLine();
                     System.out.println("Numero de Telefono: ");
                     Long phoneNumber = scanner.nextLong();
-                    Contacto contacto = new Contacto(phoneNumber, name);
+                    Contacto contacto = new Contacto(phoneNumber, name, lastName);
                     contacto.setName(scanner.nextLine());
                     agenda.addContact(contacto);
                     break;

@@ -1,5 +1,7 @@
 package org.generation.contact;
 
+import java.lang.*;
+
 public class Contacto {
     private Long number_phone;
     private String name;
