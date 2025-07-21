@@ -1,13 +1,13 @@
 package org.generation.agenda;
 
-import org.generation.contact.Contact;
+import org.generation.contact.Contacto;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class Agenda {
-    private final List<Contact> agenda = new ArrayList<>();
+    private final List<Contacto> agenda = new ArrayList<>();
     private int maxTam = 10;
 
 
@@ -20,22 +20,30 @@ public class Agenda {
     }
 
     public void getContactos() {
-        Iterator<Contact> iterador = agenda.iterator();
+        Iterator<Contacto> iterador = agenda.iterator();
 
         while (iterador.hasNext()){
-            Contact contact = iterador.next();
+            Contacto contact = iterador.next();
             System.out.println(contact.toString());
         }
 
     }
+    public boolean agendaLlena() {
+        if (agenda.size() == maxTam){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
     //Añade un contacto a la agenda. Si no hay espacio suficiente, se debe indicar al usuario que la agenda está llena.
 
-    public void addContact(Contact contacto) {
-        if(agendaLlena){
+    public void addContact(Contacto contacto) {
+        if(agendaLlena()){
             System.out.println("Agenda llena, no se puede agregar otro contacto");
             return;
-        }else(isContact(contacto)){
+        }else if (isContact(contacto)){
             System.out.println("Contacto repetido");
             return;
         }
@@ -49,24 +57,17 @@ public class Agenda {
     //existeContacto(contacto C) boolean, Verifica si un contacto ya existe en la agenda.
     //Los contactos se consideran iguales si tienen el mismo nombre y apellido, sin importar el teléfono.
 
-    public isContact(Contacto contacto) {
+    public boolean isContact(Contacto contacto) {
         for(Contacto c:agenda){ //ciclo for each donde el indice c recorre toda la lista agenda
-            if(c.getNombre().equalsIgnoreCase(contacto.getNombre()) && //equalsIgnoreCase ignora entre mayusculas y minusculas
-            c.getApellido().equalsIgnoreCase(contacto.getApellido())) {
-            return true;
+            if(c.getName().equalsIgnoreCase(contacto.getName()) && //equalsIgnoreCase ignora entre mayusculas y minusculas
+            c.getLastName().equalsIgnoreCase(contacto.getLastName())) {
+                return true;
+            }
         }
-    }
-    return false;
+        return false;
     }
 
-    public boolean agendaLlena() {
-        if (agenda.size() == maxTam){
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+
     public int espacioLibres() {
         if (agendaLlena()){
             return 0;
