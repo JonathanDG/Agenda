@@ -31,12 +31,15 @@ public class Main {
 
             switch (opcion) {
                 case 1:
+
                     System.out.println("Nombre: ");
                     String name = scanner.nextLine();
+                    System.out.println("Nombre es: " +name);
+                    System.out.println("Apellido: ");
+                    String lastName = scanner.nextLine();
                     System.out.println("Numero de Telefono: ");
                     Long phoneNumber = scanner.nextLong();
-                    Contacto contacto = new Contacto(phoneNumber, name);
-                    contacto.setName(scanner.nextLine());
+                    Contacto contacto = new Contacto(phoneNumber, name, lastName);
                     agenda.addContact(contacto);
                     break;
                 case 2:
