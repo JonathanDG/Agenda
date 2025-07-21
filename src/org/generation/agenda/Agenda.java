@@ -1,6 +1,7 @@
 package org.generation.agenda;
 
 import org.generation.contact.Contacto;
+import org.generation.exceptions.NotFoundContactException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -47,7 +48,8 @@ public class Agenda {
     }
 
     public void deleteContact(String nombre) {
-
+        Contacto contact = buscaContacto(nombre);
+        agenda.remove(contact);
     }
     //existeContacto(contacto C) boolean, Verifica si un contacto ya existe en la agenda.
     //Los contactos se consideran iguales si tienen el mismo nombre y apellido, sin importar el teléfono.
@@ -72,7 +74,15 @@ public class Agenda {
     }
 
 
-    public void buscaContacto() {
+    public Contacto buscaContacto(String name) {
+        Iterator<Contacto> iterador = agenda.iterator();
+        while (iterador.hasNext()){
+            Contacto contacto = iterador.next();
+            if(contacto.getName().equals(name)){
+                return contacto;
+            }
+        } // while
+        throw new NotFoundContactException("No se encuentra el contacto con el nombre " + name);
 
     }
 }

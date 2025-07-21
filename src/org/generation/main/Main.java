@@ -20,11 +20,11 @@ public class Main {
             System.out.println("\n--- MENÚ DE AGENDA ---");
             System.out.println("1. Agregar contacto");
             System.out.println("2. Buscar contacto existente");
-            System.out.println("3. Eliminar contacto");
-            System.out.println("4. Listar contactos");
-            System.out.println("5. Ver si agenda esta llena");
-            System.out.println("6. Ver espacios libres");
-            System.out.println("7. Salir");
+            System.out.println("2. Eliminar contacto");
+            System.out.println("3. Listar contactos");
+            System.out.println("4. Ver si agenda esta llena");
+            System.out.println("5. Ver espacios libres");
+            System.out.println("6. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
             scanner.nextLine(); // Limpiar buffer
@@ -33,20 +33,30 @@ public class Main {
                 case 1:
                     System.out.println("Nombre: ");
                     String name = scanner.nextLine();
-                    System.out.println("Nombre es: " +name);
                     System.out.println("Apellido: ");
                     String lastName = scanner.nextLine();
                     System.out.println("Numero de Telefono: ");
                     Long phoneNumber = scanner.nextLong();
+
                     Contacto contacto = new Contacto(phoneNumber, name, lastName);
-                    agenda.addContact(contacto);
+                    if (agenda.isContact(contacto)){
+                        System.out.println("El contacto ya existe. Favor de ingresar uno nunevo.");
+                    }else{
+                        agenda.addContact(contacto);
+                    }
                     break;
                 case 2:
-                        agenda.buscaContacto();
-                    break;
-                case 3:
+                    System.out.println("Nombre de contacto a buscar: ");
+                    String nameToSearch = scanner.nextLine();
+                    agenda.buscaContacto(nameToSearch);
 
                     break;
+                case 3:
+                    System.out.println("Nombre de contacto a eliminar: ");
+                    String nameToDelete = scanner.nextLine();
+                    agenda.deleteContact(nameToDelete);
+                    break;
+
                 case 4:
                     agenda.getContactos();
 
