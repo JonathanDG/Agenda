@@ -1,12 +1,12 @@
 package org.generation.contact;
 
 public class Contacto {
-    private Long number_phone;
+    private Long numberPhone;
     private String name;
     private String lastName;
 
     public Contacto(Long number_phone, String name, String lastName) {
-        this.number_phone = number_phone;
+        this.numberPhone = number_phone;
         this.name = name;
         this.lastName = lastName;
 
@@ -20,12 +20,12 @@ public class Contacto {
         this.lastName = lastName;
     }
 
-    public Long getNumber_phone() {
-        return number_phone;
+    public Long getNumberPhone() {
+        return numberPhone;
     }
 
     public void setNumber_phone(Long number_phone) {
-        this.number_phone = number_phone;
+        this.numberPhone = number_phone;
     }
 
     public String getName() {
@@ -38,6 +38,6 @@ public class Contacto {
 
     @Override
     public String toString() {
-        return "Nombre → " +name + "\tTelefono → " + number_phone;
+        return "Nombre → " +name + "\tTelefono → " + numberPhone;
     }
 }

@@ -1,6 +1,7 @@
 package org.generation.agenda;
 
 import org.generation.contact.Contacto;
+import org.generation.exception.NotFoundContactException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -51,6 +52,20 @@ public class Agenda {
         System.out.println("Contacto agregado correctamente...");
     }
 
+    // Buscar contacto
+    public int findContact(String nombre) {
+        int index = 1;
+        for(Contacto contacto: agenda) {
+            boolean contactoEncontrado = contacto.getName().equalsIgnoreCase(nombre);
+            if (contactoEncontrado) {
+                return index;
+            }
+            index++;
+        }
+        throw new NotFoundContactException("No se encontro el contatco");
+    }
+
+    // Eliminar contacto
     public void deleteContact(String nombre) {
 
     }
