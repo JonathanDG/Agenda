@@ -30,10 +30,10 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-
+                        agenda.addContact();
                     break;
                 case 2:
-
+                        agenda.buscaContacto();
                     break;
                 case 3:
 
