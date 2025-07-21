@@ -1,6 +1,7 @@
 package org.generation.main;
 
 import org.generation.agenda.Agenda;
+import org.generation.contact.Contact;
 
 import java.util.Scanner;
 
@@ -30,7 +31,13 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-
+                    System.out.println("Nombre: ");
+                    String name = scanner.nextLine();
+                    System.out.println("Numero de Telefono: ");
+                    Long phoneNumber = scanner.nextLong();
+                    Contact contacto = new Contact(phoneNumber, name);
+                    contacto.setName(scanner.nextLine());
+                    agenda.addContact(contacto);
                     break;
                 case 2:
 
@@ -39,6 +46,7 @@ public class Main {
 
                     break;
                 case 4:
+                    agenda.getContactos();
 
                     break;
                 case 5:

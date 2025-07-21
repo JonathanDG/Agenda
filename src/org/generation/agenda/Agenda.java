@@ -3,6 +3,7 @@ package org.generation.agenda;
 import org.generation.contact.Contact;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Agenda {
@@ -18,8 +19,14 @@ public class Agenda {
         this.maxTam = 10;
     }
 
-    public List<Contact> getContactos() {
-        return agenda;
+    public void getContactos() {
+        Iterator<Contact> iterador = agenda.iterator();
+
+        while (iterador.hasNext()){
+            Contact contact = iterador.next();
+            System.out.println(contact.toString());
+        }
+
     }
 
     public void addContact(Contact contacto) {
@@ -49,4 +56,6 @@ public class Agenda {
         }
         return maxTam - agenda.size();
     }
+
+
 }
