@@ -55,7 +55,7 @@ public class Agenda {
     // Buscar contacto
     public int findContact(String nombre) {
         int index = 1;
-        for(Contacto contacto: agenda) {
+        for(Contacto contacto: agenda) { 
             boolean contactoEncontrado = contacto.getName().equalsIgnoreCase(nombre);
             if (contactoEncontrado) {
                 return index;
@@ -67,7 +67,8 @@ public class Agenda {
 
     // Eliminar contacto
     public void deleteContact(String nombre) {
-
+        int index = findContact(nombre); //Indice del elemento a eliminar
+        agenda.remove(index); // Eliminar elemento de la lista
     }
     //existeContacto(contacto C) boolean, Verifica si un contacto ya existe en la agenda.
     //Los contactos se consideran iguales si tienen el mismo nombre y apellido, sin importar el teléfono.
