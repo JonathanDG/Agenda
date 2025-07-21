@@ -31,7 +31,7 @@ public class Agenda {
 
     //Añade un contacto a la agenda. Si no hay espacio suficiente, se debe indicar al usuario que la agenda está llena.
 
-    public void addContact(Contacto contacto) {
+    public void addContact(Contact contacto) {
         if(agendaLlena){
             System.out.println("Agenda llena, no se puede agregar otro contacto");
             return;
@@ -75,4 +75,7 @@ public class Agenda {
     }
 
 
+    public void buscaContacto() {
+
+    }
 }

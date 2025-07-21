@@ -1,6 +1,7 @@
 package org.generation.main;
 
 import org.generation.agenda.Agenda;
+import org.generation.contact.Contact;
 
 import java.util.Scanner;
 
@@ -34,9 +35,9 @@ public class Main {
                     String name = scanner.nextLine();
                     System.out.println("Numero de Telefono: ");
                     Long phoneNumber = scanner.nextLong();
-                    Contact contacto = new Contact(phoneNumber, name);
-                    contacto.setName(scanner.nextLine());
-                    agenda.addContact(contacto);
+                    Contact contact = new Contact(phoneNumber, name);
+                    contact.setName(scanner.nextLine());
+                    agenda.addContact(contact);
                     break;
                 case 2:
                         agenda.buscaContacto();
