@@ -6,6 +6,7 @@ import org.generation.exceptions.NotFoundContactException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 public class Agenda {
     private final List<Contacto> agenda = new ArrayList<>();
@@ -83,6 +84,12 @@ public class Agenda {
             }
         } // while
         throw new NotFoundContactException("No se encuentra el contacto con el nombre " + name);
+
+    }
+
+    public void modificarTelefono(String name){
+        Contacto contacto = buscaContacto(name);
+        System.out.println("Escribe el nuevo número");
 
     }
 }

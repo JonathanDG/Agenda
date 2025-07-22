@@ -41,7 +41,8 @@ public class Main {
             System.out.println("4. Listar contactos");
             System.out.println("5. Ver si agenda esta llena");
             System.out.println("6. Ver espacios libres");
-            System.out.println("7. Salir");
+            System.out.println("7. Modificar telefono de contacto");
+            System.out.println("8. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
             scanner.nextLine(); // Limpiar buffer
@@ -93,6 +94,11 @@ public class Main {
                     }
                     break;
                 case 7:
+                    System.out.println("Nombre del contacto a cambiar el tel: ");
+                    String nameToChangeNumber = scanner.nextLine();
+
+                    break;
+                case 8:
                     System.out.println("Adios");
                     break;
                 default:
