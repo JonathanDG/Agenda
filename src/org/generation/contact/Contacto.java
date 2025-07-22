@@ -40,6 +40,6 @@ public class Contacto {
 
     @Override
     public String toString() {
-        return "Nombre → " + name +  "\tApellido → " +lastName + "\tTelefono → " + number_phone;
+        return "Nombre: " + name +  "\tApellido: " +lastName + "\tTelefono: " + number_phone;
     }
 }

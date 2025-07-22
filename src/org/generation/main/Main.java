@@ -13,6 +13,7 @@ public class Main {
         do{
             System.out.println("Desea establecer tamaño de agenda o prefiere el tamaño por defecto?");
             System.out.println("1. Por defecto \n2. Establecer tamaño\n");
+            System.out.print("Ingrese una opcion: ");
             op = scanner.nextInt();
 
             if(op == 1){
@@ -65,8 +66,13 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Nombre de contacto a buscar: ");
-                    String nameToSearch = scanner.nextLine();
-                    agenda.buscaContacto(nameToSearch);
+                    String nameToSearch = scanner.nextLine().trim();
+                    Contacto encontrado = agenda.buscaContacto(nameToSearch);
+                    if (encontrado != null) {
+                        System.out.println("Contacto encontrado: \n" + encontrado);
+                    } else {
+                        System.out.println("No se encontró ningún contacto con ese nombre.");
+                    }
 
                     break;
                 case 3:
@@ -94,9 +100,12 @@ public class Main {
                     }
                     break;
                 case 7:
-                    System.out.println("Nombre del contacto a cambiar el tel: ");
+                    System.out.println("Nombre del contacto a cambiar el telefono: ");
                     String nameToChangeNumber = scanner.nextLine();
 
+                    System.out.println("Nuevo número de teléfono: ");
+                    Long nuevoTelefono = scanner.nextLong();
+                    agenda.modificarTelefono(nameToChangeNumber, nuevoTelefono);
                     break;
                 case 8:
                     System.out.println("Adios");
@@ -104,6 +113,6 @@ public class Main {
                 default:
                     System.out.println("Opcion invalida");
             }
-        } while (opcion != 7);
+        } while (opcion != 8);
     }
 }

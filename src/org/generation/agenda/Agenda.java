@@ -76,20 +76,23 @@ public class Agenda {
 
 
     public Contacto buscaContacto(String name) {
-        Iterator<Contacto> iterador = agenda.iterator();
-        while (iterador.hasNext()){
-            Contacto contacto = iterador.next();
-            if(contacto.getName().equals(name)){
+        for (Contacto contacto : agenda) {
+            if (contacto.getName().equalsIgnoreCase(name)) {
                 return contacto;
             }
-        } // while
+        }
         throw new NotFoundContactException("No se encuentra el contacto con el nombre " + name);
 
     }
 
-    public void modificarTelefono(String name){
-        Contacto contacto = buscaContacto(name);
-        System.out.println("Escribe el nuevo número");
+    public void modificarTelefono(String name, Long newNumber){
+        try {
+            Contacto contacto = buscaContacto(name);
+            contacto.setNumber_phone(newNumber);
+            System.out.println("Teléfono actualizado correctamente.");
+        } catch (NotFoundContactException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 }
